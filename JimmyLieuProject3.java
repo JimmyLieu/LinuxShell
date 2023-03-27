@@ -18,7 +18,9 @@ public class JimmyLieuProject3 {
                 System.out.println("Exiting");
                 break;
             }
+            //Switch cases
             switch (input.toLowerCase()) {
+            //load directory
                 case "ls":
                     executeCommand("cmd /c dir");
                     break;
@@ -70,7 +72,7 @@ public class JimmyLieuProject3 {
          */
         System.out.printf("%-15s %-15s\n", "Commands", "Functions");
         System.out.printf("%-15s %-15s\n", "=======", "========");
-        // System.out.printf("%-10s %-10s %-10s\n", "osne", "two", "thredsfe")""
+        // System.out.printf("%-10s %-10s %-10s\n", "one", "two", "three")""
         System.out.printf("%-15s %-15s\n", "ls", "Lists all files and directories in the current directory");
         System.out.printf("%-15s %-15s\n", "pwd", "Displays the current directory");
         System.out.printf("%-15s %-15s\n", "clear", "Clears the console");
