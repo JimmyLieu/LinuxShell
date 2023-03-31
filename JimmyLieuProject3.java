@@ -1,6 +1,9 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class JimmyLieuProject3 {
     public static void main(String[] args) {
@@ -31,7 +34,20 @@ public class JimmyLieuProject3 {
                     executeCommand("cmd /c cls");
                     break;
                 case "date":
-                    executeCommand("cmd /c date /t");
+                    // Get the current date and time
+                    Date currentDate = new Date();
+
+                    // Create a date formatter with the desired format
+                    SimpleDateFormat formatter = new SimpleDateFormat ("E MMM dd HH:mm:ss z yyyy");
+
+                    // Set the time zone of the formatter to CST
+                    formatter.setTimeZone(TimeZone.getTimeZone("CST"));
+
+                    // Format the current date and time using the formatter
+                    String output = formatter.format(currentDate);
+
+                    //Print the formatted date and time to the console
+                    System.out.println(output);
                     break;
                 case "help":
                     displayHelp();
@@ -46,18 +62,19 @@ public class JimmyLieuProject3 {
         }
     }
 
-    private static void executeCommand(String command) {
+    private static String executeCommand(String command) {
         try {
             Process process = Runtime.getRuntime().exec(command);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+                System.out.printf(line);
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return command;
     }
 
     private static void displayHelp() {
