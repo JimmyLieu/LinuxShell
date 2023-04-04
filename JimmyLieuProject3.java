@@ -9,6 +9,7 @@ public class JimmyLieuProject3 {
     public static void main(String[] args) throws IOException, InterruptedException, InterruptedException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input;
+        String myName = "Jimmy Lieu";
         while (true) {
             System.out.printf(">>>");
             try {
@@ -61,7 +62,7 @@ public class JimmyLieuProject3 {
                     displayHelp();
                     break;
                 case "whoami":
-                    executeCommand("cmd /c echo %username%");
+                    System.out.println(myName);
                     break;
                 default:
                 if (input.startsWith("help ")){ //check if input starts with "help "
